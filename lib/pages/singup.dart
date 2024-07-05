@@ -16,35 +16,35 @@ class _SingUpState extends State<SingUp> {
   TextEditingController confirmPasswordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  // registration() async {
-  //   if (password != null && password == confirmPassword) {
-  //     try {
-  //       UserCredential userCredential = await FirebaseAuth.instance
-  //           .createUserWithEmailAndPassword(email: email, password: password);
-  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //           content: Text(
-  //         'Registred Succesfully',
-  //         style: TextStyle(fontSize: 20),
-  //       )));
-  //     } on FirebaseAuthException catch (e) {
-  //       if (e.code == 'weak-password') {
-  //         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //             backgroundColor: Colors.orange,
-  //             content: Text(
-  //               'Password Provided is too Weak',
-  //               style: TextStyle(fontSize: 18),
-  //             )));
-  //       } else if (e.code == 'email-alredy-in-use') {
-  //         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //             backgroundColor: Colors.orange,
-  //             content: Text(
-  //               'Account alredy exists',
-  //               style: TextStyle(fontSize: 18),
-  //             )));
-  //       }
-  //     }
-  //   }
-  // }
+  registration() async {
+    if (password != null && password == confirmPassword) {
+      try {
+        UserCredential userCredential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(email: email, password: password);
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text(
+          'Registred Succesfully',
+          style: TextStyle(fontSize: 20),
+        )));
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'weak-password') {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              backgroundColor: Colors.orange,
+              content: Text(
+                'Password Provided is too Weak',
+                style: TextStyle(fontSize: 18),
+              )));
+        } else if (e.code == 'email-alredy-in-use') {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              backgroundColor: Colors.orange,
+              content: Text(
+                'Account alredy exists',
+                style: TextStyle(fontSize: 18),
+              )));
+        }
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +106,7 @@ class _SingUpState extends State<SingUp> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Name',
                                       style: TextStyle(
                                           color: Colors.black,
@@ -132,7 +132,7 @@ class _SingUpState extends State<SingUp> {
                                           }
                                           return null;
                                         },
-                                        decoration: InputDecoration(
+                                        decoration: const InputDecoration(
                                           border: InputBorder.none,
                                           prefixIcon: Icon(
                                             Icons.person_outlined,
@@ -142,7 +142,7 @@ class _SingUpState extends State<SingUp> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     const Text(
@@ -277,7 +277,7 @@ class _SingUpState extends State<SingUp> {
                         ),
                         Center(
                           child: Container(
-                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            margin: const EdgeInsets.symmetric(horizontal: 20),
                             width: MediaQuery.of(context).size.width,
                             child: Material(
                               elevation: 5.0,
